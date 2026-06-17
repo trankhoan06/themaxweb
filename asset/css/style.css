@@ -27,46 +27,39 @@ a:hover {
     color: unset;
 }
 
-h1 {
+.heading {
+    margin: 0;
+    font-weight: 500;
+}
+
+.h1 {
     font-size: 6.4rem;
     line-height: 1.25em;
-    margin: 0;
-    font-weight: 500;
 }
 
-h2 {
+.h2 {
     font-size: 4.8rem;
     line-height: 1.333333em;
-    margin: 0;
-    font-weight: 500;
 }
 
-h3 {
+.h3 {
     font-size: 4rem;
     line-height: 1.4em;
-    margin: 0;
-    font-weight: 500;
 }
 
-h4 {
+.h4 {
     font-size: 3.2rem;
     line-height: 1.5em;
-    margin: 0;
-    font-weight: 500;
 }
 
-h5 {
+.h5 {
     font-size: 2.4rem;
     line-height: 1.333333em;
-    margin: 0;
-    font-weight: 500;
 }
 
 .h6 {
     font-size: 2rem;
     line-height: 1.4em;
-    margin: 0;
-    font-weight: 500;
 }
 
 @font-face {
@@ -684,6 +677,10 @@ h2 {
     margin-right: 1.2rem;
     display: flex;
     gap: 3.2rem;
+}
+
+.footer_top .grid {
+    align-items: center;
 }
 
 .footer_top_menu_item {
