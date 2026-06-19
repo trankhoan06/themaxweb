@@ -1,0 +1,228 @@
+/* service_hero */
+.service_hero {
+    padding-top: 11.6rem;
+    padding-bottom: 8rem;
+}
+
+.service_hero_left {
+    grid-column: 1/9;
+    margin-right: -3.2rem;
+}
+
+.service_hero_right {
+    grid-column: 10/13;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.service_hero_right_discover_icon {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.service_hero_right_discover_icon_wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+}
+
+.service_hero_right_discover_icon {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.service_hero_right_discover_icon.active {
+    transform: translate(-100%, -100%);
+}
+
+.service_hero_right_discover {
+    display: flex;
+    gap: .8rem;
+}
+
+.service_hero_right_discover:hover .service_hero_right_discover_icon {
+    transform: translate(100%, 100%);
+}
+
+.service_hero_right_discover:hover .service_hero_right_discover_icon.active {
+    transform: translate(0%, 0%);
+}
+
+.service_hero_right_txt {
+    text-align: right;
+}
+
+
+/* career_why */
+
+.career_why {
+    padding-block: 10rem;
+}
+
+.career_why_info {
+    margin-bottom: 10rem;
+    position: relative;
+}
+
+.career_why_info_content_card_item_icon {
+    width: 5.6rem;
+    height: 5.6rem;
+    margin-bottom: 6.6rem;
+}
+
+.career_why_info_content_card_item {
+    padding: 3.2rem;
+}
+
+
+.career_why_info_content_card_item_title {
+    margin-bottom: 1.2rem;
+}
+
+
+.career_why_info_left {
+    grid-column: 1/4;
+}
+
+.career_why_info_content {
+    grid-column: 5/13;
+
+}
+
+.career_why_info_content_title {
+    margin-bottom: 5.6rem;
+}
+
+.career_why_info_content_card {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 3.2rem;
+}
+
+.career_why_info_content_card_item {
+    width: calc(50% - 2.4rem);
+    border-bottom: 1px solid #262626;
+}
+
+.career_why_img {
+    position: relative;
+    margin-bottom: 10rem;
+}
+
+.career_why_img_overlay {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background-color: rgba(13, 13, 13, 0.4);
+}
+
+.career_why_img_txt {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.career_why_img_bg {
+    position: absolute;
+    left: -6.5rem;
+    bottom: -10rem;
+    width: 36.3rem;
+}
+
+.home_case_content_item_txt_icon_wrap {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    width: 4.8rem;
+    height: 4.8rem;
+}
+
+.home_case_content_item_txt_icon_wrap.active {
+    transform: translate(-100%, 100%);
+}
+
+.career_why_list_item:hover {
+    .home_case_content_item_txt_icon_wrap {
+        transform: translate(100%, -100%);
+    }
+
+    .home_case_content_item_txt_icon_wrap.active {
+        transform: translate(0, 0);
+    }
+
+    .home_case_content_item_txt_title {
+        color: #F32B3B;
+    }
+
+    &::before {
+        right: 0;
+    }
+
+    .home_case_content_item_img {
+        opacity: 1;
+        transform: translateY(-50%) scale(1, 1);
+    }
+}
+
+.career_why_list_item_position {
+    grid-column: 1/6;
+}
+
+.career_why_list_item_level {
+    grid-column: 6/8;
+}
+
+.career_why_list_item_quality {
+    grid-column: 8/10;
+}
+
+.career_why_list_item_deadline {
+    grid-column: 10/12;
+}
+
+.home_case_content_item_txt_icon {
+    grid-column: 12/13;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.career_why_list_title {
+    padding-left: 6.4rem;
+}
+
+.career_why_list_item {
+    padding-block: 3.2rem;
+    padding-left: 6.4rem;
+    border-bottom: 1px solid #262626;
+    position: relative;
+    color: #bebebe;
+}
+
+.about_cta_inner_content {
+    left: 28.8rem;
+    right: 17.6rem;
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    align-items: center;
+}
+
+.about_cta_inner_content_title {
+    width: 37.7rem;
+}
+
+.about_cta_inner_content_des {
+    width: 40rem;
+}
+
+.about_cta_inner_content_title_txt {
+    margin-bottom: 4rem;
+}
