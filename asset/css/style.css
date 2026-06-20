@@ -43,6 +43,12 @@ a:hover {
     letter-spacing: -2%;
 }
 
+.h0 {
+    font-size: 13.2rem;
+    line-height: 1.2em;
+    letter-spacing: -3%;
+}
+
 .h1 {
     font-size: 6.4rem;
     line-height: 1.25em;
@@ -131,6 +137,8 @@ body {
     color: #BEBEBE;
     background-color: #0D0D0D;
     margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.5em;
     overflow-x: hidden;
 }
 
@@ -164,6 +172,7 @@ body {
         left: 0;
         top: 50%;
         transform: translateY(-50%);
+        background-size: contain;
     }
 }
 
@@ -350,13 +359,17 @@ h2 {
     color: #fff;
 }
 
+.cl_eb {
+    color: #EBEBEB;
+}
+
 .img_radius {
     border-radius: 2rem;
     overflow: hidden;
 }
 
 .cl_linear {
-    background: linear-gradient(to bottom, #FFFFFF, #C3C2C2);
+    background: linear-gradient(90deg, #FFFFFF, #C3C2C2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

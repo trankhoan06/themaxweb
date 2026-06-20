@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    // Lenis
+    const lenis = new Lenis();
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+
+    // GSAP register
+    gsap.registerPlugin(ScrollTrigger);
+
     // Initialize home clients tabs
     let activeTab = $('.home_clients_tab_item.active').attr('data-tabs');
     $('.home_clients_content_item').hide();
