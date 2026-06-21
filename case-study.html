@@ -12,6 +12,18 @@
 <body>
     <header>
         <div class="header">
+            <div class="blur-overlay">
+                <div class="blur-overlay-inner">
+                    <div class="blur-overlay-item"></div>
+                    <div class="blur-overlay-item"></div>
+                    <div class="blur-overlay-item"></div>
+                    <div class="blur-overlay-item"></div>
+                    <div class="blur-overlay-item"></div>
+                    <div class="blur-overlay-item"></div>
+                    <div class="blur-overlay-item"></div>
+                    <div class="blur-overlay-item"></div>
+                </div>
+            </div>
             <div class="grid container">
                 <a href="/" class="header_logo svg_full">
                     <svg width="128" height="36" viewBox="0 0 128 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,441 +114,446 @@
             </div>
         </div>
     </header>
-    <section class="casestudy_hero">
-        <div class="container">
-            <div class="casestudy_hero_inner grid">
-                <h1 class="casestudy_hero_title heading h1 cl_linear">Showcasing the results of
-                    our strategic approach.</h1>
-                <div class="casestudy_hero_des txt_18">See the impact of our tailor-made strategies for every client.
+    <main class="main" data-namespace="caseStudy">
+        <section class="casestudy_hero">
+            <div class="container">
+                <div class="casestudy_hero_inner grid">
+                    <h1 class="casestudy_hero_title heading h1 cl_linear">Showcasing the results of
+                        our strategic approach.</h1>
+                    <div class="casestudy_hero_des txt_18">See the impact of our tailor-made strategies for every
+                        client.
+                    </div>
                 </div>
-            </div>
-            <div class="casestudy_hero_bg svg_full">
-                <svg width="883" height="806" viewBox="0 0 883 806" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.5" filter="url(#filter0_d_368_2651)">
-                        <path
-                            d="M288.603 0.5L556.76 395.47L285.328 797.5H4.94043L276.185 395.749L276.374 395.469L276.185 395.188L8.21777 0.5H288.603Z"
-                            fill="url(#paint0_radial_368_2651)" stroke="black" />
-                        <path
-                            d="M680.564 588.973L493.875 313.896L682.845 33.9004L877.79 33.9004L689.008 313.617L688.818 313.897L689.009 314.178L875.506 588.973L680.564 588.973Z"
-                            fill="url(#paint1_radial_368_2651)" stroke="black" />
-                    </g>
-                    <defs>
-                        <filter id="filter0_d_368_2651" x="0" y="0" width="882.73" height="806"
-                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                            <feColorMatrix in="SourceAlpha" type="matrix"
-                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                            <feOffset dy="4" />
-                            <feGaussianBlur stdDeviation="2" />
-                            <feComposite in2="hardAlpha" operator="out" />
-                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_368_2651" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_368_2651"
-                                result="shape" />
-                        </filter>
-                        <radialGradient id="paint0_radial_368_2651" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(280.682 399) rotate(90) scale(399 276.682)">
-                            <stop stop-color="#EB4250" />
-                            <stop offset="1" stop-color="#0D0D0D" />
-                        </radialGradient>
-                        <radialGradient id="paint1_radial_368_2651" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(686.001 311.436) rotate(-90) scale(278.036 192.73)">
-                            <stop stop-color="#0D0D0D" stop-opacity="0" />
-                            <stop offset="1" stop-color="#A9000E" />
-                        </radialGradient>
-                    </defs>
-                </svg>
+                <div class="casestudy_hero_bg svg_full">
+                    <svg width="883" height="806" viewBox="0 0 883 806" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.5" filter="url(#filter0_d_368_2651)">
+                            <path
+                                d="M288.603 0.5L556.76 395.47L285.328 797.5H4.94043L276.185 395.749L276.374 395.469L276.185 395.188L8.21777 0.5H288.603Z"
+                                fill="url(#paint0_radial_368_2651)" stroke="black" />
+                            <path
+                                d="M680.564 588.973L493.875 313.896L682.845 33.9004L877.79 33.9004L689.008 313.617L688.818 313.897L689.009 314.178L875.506 588.973L680.564 588.973Z"
+                                fill="url(#paint1_radial_368_2651)" stroke="black" />
+                        </g>
+                        <defs>
+                            <filter id="filter0_d_368_2651" x="0" y="0" width="882.73" height="806"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                                <feOffset dy="4" />
+                                <feGaussianBlur stdDeviation="2" />
+                                <feComposite in2="hardAlpha" operator="out" />
+                                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_368_2651" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_368_2651"
+                                    result="shape" />
+                            </filter>
+                            <radialGradient id="paint0_radial_368_2651" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(280.682 399) rotate(90) scale(399 276.682)">
+                                <stop stop-color="#EB4250" />
+                                <stop offset="1" stop-color="#0D0D0D" />
+                            </radialGradient>
+                            <radialGradient id="paint1_radial_368_2651" cx="0" cy="0" r="1"
+                                gradientUnits="userSpaceOnUse"
+                                gradientTransform="translate(686.001 311.436) rotate(-90) scale(278.036 192.73)">
+                                <stop stop-color="#0D0D0D" stop-opacity="0" />
+                                <stop offset="1" stop-color="#A9000E" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
 
-            </div>
-        </div>
-    </section>
-    <section class="casestudy_content">
-        <div class="container">
-            <div class="home_case_content_list right_full left_full">
-                <div class="home_case_content_item">
-                    <div class="home_case_content_item_des">
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
-                    </div>
-                    <div class="home_case_content_item_txt">
-                        <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
-                        <div class="home_case_content_item_txt_icon">
-                            <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
-                                    height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home_case_content_item_img img_full">
-                        <img src="/asset/image/case.webp" alt="">
-                    </div>
-                </div>
-                <div class="home_case_content_item">
-                    <div class="home_case_content_item_des">
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
-                    </div>
-                    <div class="home_case_content_item_txt">
-                        <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
-                        <div class="home_case_content_item_txt_icon">
-                            <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
-                                    height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home_case_content_item_img img_full">
-                        <img src="/asset/image/case.webp" alt="">
-                    </div>
-                </div>
-                <div class="home_case_content_item">
-                    <div class="home_case_content_item_des">
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
-                    </div>
-                    <div class="home_case_content_item_txt">
-                        <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
-                        <div class="home_case_content_item_txt_icon">
-                            <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
-                                    height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home_case_content_item_img img_full">
-                        <img src="/asset/image/case.webp" alt="">
-                    </div>
-                </div>
-                <div class="home_case_content_item">
-                    <div class="home_case_content_item_des">
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
-                    </div>
-                    <div class="home_case_content_item_txt">
-                        <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
-                        <div class="home_case_content_item_txt_icon">
-                            <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
-                                    height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home_case_content_item_img img_full">
-                        <img src="/asset/image/case.webp" alt="">
-                    </div>
-                </div>
-                <div class="home_case_content_item">
-                    <div class="home_case_content_item_des">
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
-                    </div>
-                    <div class="home_case_content_item_txt">
-                        <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
-                        <div class="home_case_content_item_txt_icon">
-                            <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
-                                    height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home_case_content_item_img img_full">
-                        <img src="/asset/image/case.webp" alt="">
-                    </div>
-                </div>
-                <div class="home_case_content_item">
-                    <div class="home_case_content_item_des">
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
-                    </div>
-                    <div class="home_case_content_item_txt">
-                        <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
-                        <div class="home_case_content_item_txt_icon">
-                            <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
-                                    height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home_case_content_item_img img_full">
-                        <img src="/asset/image/case.webp" alt="">
-                    </div>
-                </div>
-                <div class="home_case_content_item">
-                    <div class="home_case_content_item_des">
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
-                    </div>
-                    <div class="home_case_content_item_txt">
-                        <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
-                        <div class="home_case_content_item_txt_icon">
-                            <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
-                                    height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home_case_content_item_img img_full">
-                        <img src="/asset/image/case.webp" alt="">
-                    </div>
-                </div>
-                <div class="home_case_content_item">
-                    <div class="home_case_content_item_des">
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
-                        <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
-                    </div>
-                    <div class="home_case_content_item_txt">
-                        <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
-                        <div class="home_case_content_item_txt_icon">
-                            <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
-                                    height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_1164_690)">
-                                        <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                        <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
-                                            stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_1164_690">
-                                            <rect width="48" height="48" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="home_case_content_item_img img_full">
-                        <img src="/asset/image/case.webp" alt="">
-                    </div>
                 </div>
             </div>
-            <div class="home_case_seeview button_hover hover_txt txt_uppercase txt_14 txt_medium">
-                <div class="hover_txt_grid">
-                    <span class="init">SEE MORE</span>
-                    <span class="active">SEE MORE</span>
+        </section>
+        <section class="casestudy_content">
+            <div class="container">
+                <div class="home_case_content_list right_full left_full">
+                    <div class="home_case_content_item">
+                        <div class="home_case_content_item_des">
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
+                        </div>
+                        <div class="home_case_content_item_txt">
+                            <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
+                            <div class="home_case_content_item_txt_icon">
+                                <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
+                                        height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home_case_content_item_img img_full">
+                            <img src="/asset/image/case.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="home_case_content_item">
+                        <div class="home_case_content_item_des">
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
+                        </div>
+                        <div class="home_case_content_item_txt">
+                            <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
+                            <div class="home_case_content_item_txt_icon">
+                                <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
+                                        height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home_case_content_item_img img_full">
+                            <img src="/asset/image/case.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="home_case_content_item">
+                        <div class="home_case_content_item_des">
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
+                        </div>
+                        <div class="home_case_content_item_txt">
+                            <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
+                            <div class="home_case_content_item_txt_icon">
+                                <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
+                                        height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home_case_content_item_img img_full">
+                            <img src="/asset/image/case.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="home_case_content_item">
+                        <div class="home_case_content_item_des">
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
+                        </div>
+                        <div class="home_case_content_item_txt">
+                            <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
+                            <div class="home_case_content_item_txt_icon">
+                                <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
+                                        height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home_case_content_item_img img_full">
+                            <img src="/asset/image/case.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="home_case_content_item">
+                        <div class="home_case_content_item_des">
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
+                        </div>
+                        <div class="home_case_content_item_txt">
+                            <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
+                            <div class="home_case_content_item_txt_icon">
+                                <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
+                                        height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home_case_content_item_img img_full">
+                            <img src="/asset/image/case.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="home_case_content_item">
+                        <div class="home_case_content_item_des">
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
+                        </div>
+                        <div class="home_case_content_item_txt">
+                            <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
+                            <div class="home_case_content_item_txt_icon">
+                                <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
+                                        height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home_case_content_item_img img_full">
+                            <img src="/asset/image/case.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="home_case_content_item">
+                        <div class="home_case_content_item_des">
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
+                        </div>
+                        <div class="home_case_content_item_txt">
+                            <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
+                            <div class="home_case_content_item_txt_icon">
+                                <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
+                                        height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home_case_content_item_img img_full">
+                            <img src="/asset/image/case.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="home_case_content_item">
+                        <div class="home_case_content_item_des">
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">DAT XANH GROUP</div>
+                            <div class="home_case_content_item_des_txt txt_15 txt_medium">WEBSITE</div>
+                        </div>
+                        <div class="home_case_content_item_txt">
+                            <div class="home_case_content_item_txt_title heading cl_be h4">Opal Garden</div>
+                            <div class="home_case_content_item_txt_icon">
+                                <div class="home_case_content_item_txt_icon_wrap svg_full"><svg width="48" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#929292" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="home_case_content_item_txt_icon_wrap svg_full active"><svg width="48"
+                                        height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1164_690)">
+                                            <path d="M12 12H36.0003V36.0003" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                            <path d="M12 36.0003L36.0003 12" stroke="#F32B3B" stroke-width="2"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1164_690">
+                                                <rect width="48" height="48" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home_case_content_item_img img_full">
+                            <img src="/asset/image/case.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="home_case_seeview button_hover hover_txt txt_uppercase txt_14 txt_medium">
+                    <div class="hover_txt_grid">
+                        <span class="init">SEE MORE</span>
+                        <span class="active">SEE MORE</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="about_cta">
-        <div class="about_cta_inner">
-            <div class="about_cta_img img_full">
-                <img src="/asset/image/img_cta.webp" alt="">
+        </section>
+        <section class="about_cta">
+            <div class="about_cta_inner">
+                <div class="about_cta_img img_full">
+                    <img src="/asset/image/img_cta.webp" alt="">
+                </div>
+                <div class="about_cta_inner_bg img_full">
+                    <img src="/asset/image/bg_cta.webp" alt="">
+                </div>
+                <div class="about_cta_inner_overlay"></div>
             </div>
-            <div class="about_cta_inner_bg img_full">
-                <img src="/asset/image/bg_cta.webp" alt="">
-            </div>
-            <div class="about_cta_inner_overlay"></div>
-        </div>
-        <div class=" about_cta_inner_content  h2 heading cl_linear">
-            Have a Project in Mind,
-            Start your project <span>Now</span> <span class="cl_red">Tell Us</span>
-            <div class="about_cta_inner_content_icon svg_full">
-                <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M11.0342 0.000106148L0.121454 0L10.0872 14.8672L-7.74663e-05 29.9999L10.9127 30L21 14.8673L11.0342 0.000106148Z"
-                        fill="#E62636" />
-                </svg>
+            <div class=" about_cta_inner_content  h2 heading cl_linear">
+                Have a Project in Mind,
+                Start your project <span>Now</span> <span class="cl_red">Tell Us</span>
+                <div class="about_cta_inner_content_icon svg_full">
+                    <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11.0342 0.000106148L0.121454 0L10.0872 14.8672L-7.74663e-05 29.9999L10.9127 30L21 14.8673L11.0342 0.000106148Z"
+                            fill="#E62636" />
+                    </svg>
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
     <footer>
         <div class="footer">
             <div class="container">
@@ -759,8 +776,15 @@
         </div>
     </a>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="./asset/js/main.js"></script>
-<script src="./asset/js/case-study.js"></script>
+<!-- Lenis smooth scroll -->
+<script src="./asset/js/lenis.min.js"></script>
+<!-- jQuery -->
+<script src="./asset/js/jquery-3.7.1.min.js"></script>
+<!-- GSAP -->
+<script src="./asset/js/gsap.min.js"></script>
+<script src="./asset/js/ScrollTrigger.min.js"></script>
+<script src="./asset/js/SplitText.min.js"></script>
+<!-- Project scripts -->
+<script src="./asset/js/index.js"></script>
 
 </html>
