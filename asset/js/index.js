@@ -46,7 +46,7 @@ const mainScript = () => {
       if (!this.timeline) {
         this.timeline = gsap.timeline({
           scrollTrigger: {
-            start: 'top top+=80%',
+            start: 'top top+=70%',
             end: '+=100%',
             scrub: false,
             once: true,
@@ -55,6 +55,10 @@ const mainScript = () => {
         })
       };
       this.tweenArr.forEach((item) => this.timeline.add(item.animation, item.delay || `<=${this.stagger}` || "<=.1"));
+    }
+    destroy() {
+      this.timeline.kill();
+      this.tweenArr.forEach((item) => item.destroy?.());
     }
   }
   class RevealText {
@@ -229,47 +233,35 @@ const mainScript = () => {
     }
   }
   class FadeSplitText {
-    constructor({ el, delay, splitType, isDisableRevert, ...props }) {
+    constructor({ el, delay, headingType, splitType, duration, stagger, isDisableRevert, ...props }) {
       if (!el || el.textContent === '') return;
       this.DOM = { el: el };
       this.delay = delay;
       this.textSplit = null;
       this.splitType = splitType || 'words';
+      this.headingType = headingType || 'false';
+      this.duration = duration || .8;
+      this.stagger = stagger || .02;
       let animation;
       document.fonts.ready.then(() => {
-        console.log(this.splitType);
         this.textSplit = SplitText.create(this.DOM.el, {
-          type: this.splitType === 'words' ? "lines words" : `lines words ${this.splitType}`,
+          type: this.splitType === 'words' ? "lines words" : 'lines',
           mask: "lines",
-          wordsClass: 'words-split',
+          linesClass: headingType ? 'bp-line heading-line' : 'bp-line',
+          autoSplit: true,
           onSplit: (self) => {
             gsap.set(self[this.splitType], { autoAlpha: 0, yPercent: 100 });
             animation = gsap.to(self[this.splitType], {
               autoAlpha: 1,
               yPercent: 0,
-              stagger: this.splitType === 'words' ? 0.025 : this.splitType === 'chars' ? 0.05 : 0.1,
-              duration: this.splitType === 'chars' ? 0.5 : .8,
-              willChange: 'transform, opacity',
+              stagger: this.stagger,
+              duration: this.duration,
               ease: 'power2.out',
-              clearProps: 'overflow',
               onComplete: () => {
                 if (!isDisableRevert) {
                   self.revert();
                   convertHyphenDOM(self.elements[0]);
                 }
-                else {
-                  gsap.set(this.DOM.el.querySelectorAll('[aria-hidden="true"]'), { clearProps: 'overflow' });
-                }
-              },
-              onStart: () => {
-                setTimeout(() => {
-                  if (this.DOM.el.querySelectorAll('.txt-strike').length !== 0) {
-                    this.DOM.el.querySelectorAll('.txt-strike').forEach(element => element.classList.add('active'));
-                  }
-                  if (this.DOM.el.querySelectorAll('.heading-decor').length !== 0) {
-                    this.DOM.el.querySelectorAll('.heading-decor').forEach(element => element.classList.add('active'));
-                  }
-                }, 450);
               },
               ...props
             });
@@ -282,6 +274,34 @@ const mainScript = () => {
       document.fonts.ready.then(() => {
 
       })
+    }
+    destroy() {
+      this.animation.kill();
+    }
+  }
+
+  class TextTypewriter {
+    constructor({ el, delay, ...props }) {
+      this.DOM = { el: el };
+      this.delay = delay;
+      document.fonts.ready.then(() => {
+        gsap.set(this.DOM.el, { height: this.DOM.el.offsetHeight });
+        this.animation = gsap.from(this.DOM.el, {
+          text: {
+            value: "",
+            speed: 3,
+            ...props
+          },
+          clearProps: 'all',
+        });;
+      })
+    }
+    init() {
+    }
+    stop() {
+    }
+    destroy() {
+      this.animation.kill();
     }
   }
   class FadeIn {
@@ -306,6 +326,10 @@ const mainScript = () => {
           set: { opacity: 0, x: parseRem(-32), ...from },
           to: { opacity: 1, x: 0, ...to }
         },
+        none: {
+          set: { opacity: 0, ...from },
+          to: { opacity: 1, ...to }
+        },
         default: {
           set: { opacity: 0, y: parseRem(32), ...from },
           to: { opacity: 1, y: 0, ...to }
@@ -326,6 +350,9 @@ const mainScript = () => {
     init() {
       if (!this.DOM.el) return;
       gsap.set(this.DOM.el, { ...this.options[this.type]?.set || this.options.default.set });
+    }
+    destroy() {
+      this.animation.kill();
     }
   }
   class ScaleDash {
@@ -410,7 +437,7 @@ const mainScript = () => {
         {
           ...this.options[this.type]?.to || this.options.default.to,
           duration: 1.2,
-          ease: 'power1.out',
+          ease: 'none',
           clearProps: isDisableRevert ? '' : 'all',
           ...props
         });
@@ -420,25 +447,37 @@ const mainScript = () => {
 
       gsap.set(this.DOM.el, { ...this.options[this.type]?.set || this.options.default.set });
     }
+    destroy() {
+      this.animation.kill();
+    }
   }
   class ScaleInset {
-    constructor({ el, elInner, delay, duration, isDisableRevert }) {
+    constructor({ el, delay, duration, isDisableRevert, onComplete }) {
       this.DOM = {
-        el: el, elInner: elInner || el?.querySelector('img')
+        el: el
       };
       this.delay = delay;
-      this.borderRad = gsap.getProperty(this.DOM.el, 'border-radius');
+      const animationProps = {
+        scale: 1,
+        duration: 1.6,
+        autoAlpha: 1,
+        ease: 'expo.out',
+        clearProps: isDisableRevert ? '' : 'all',
+        overwrite: true
+      };
+      if (onComplete) {
+        animationProps.onComplete = onComplete;
+      }
       this.animation = gsap
         .timeline()
-        .to(this.DOM.el,
-          { clipPath: `inset(0% round ${this.borderRad}px)`, duration: 2, ease: 'expo.out', clearProps: isDisableRevert ? '' : 'all' })
-        .to(this.DOM.elInner,
-          { scale: 1, duration: 2, autoAlpha: 1, ease: 'expo.out', clearProps: isDisableRevert ? '' : 'all', overwrite: true }, "<=0")
+        .to(this.DOM.el, animationProps)
     }
     init() {
       if (!this.DOM.el) return;
-      gsap.set(this.DOM.el, { clipPath: `inset(20% round ${this.borderRad}px)` });
-      gsap.set(this.DOM.elInner, { scale: 1.4, autoAlpha: 0 });
+      gsap.set(this.DOM.el, { scale: 1.25, autoAlpha: 0 });
+    }
+    destroy() {
+      this.animation.kill();
     }
   }
 
@@ -1358,37 +1397,6 @@ const mainScript = () => {
           this.oncePlay(data);
         },
       });
-      if (data.next.namespace == "home") {
-        this.tlLoadMaster.to(this.tlFirstLoad, {
-          duration: this.tlFirstLoad.totalDuration(),
-          progress: 1,
-          ease: "none",
-        }, "<=0");
-        this.tlLoadMaster.to(this.tlCount, {
-          duration: this.tlCount.totalDuration(),
-          progress: 1,
-          ease: "none",
-        });
-        this.tlLoadMaster.to(this.tlSlide, {
-          duration: this.tlSlide.totalDuration(),
-          progress: 1,
-          ease: "none",
-        }, "<");
-        this.tlLoadMaster.to(this.tlMove, {
-          duration: this.tlMove.totalDuration(),
-          progress: 1,
-          ease: "none",
-        }, "<= 5.8");
-
-        const heroTextTl = gsap.timeline();
-        this.tlLoadMaster.add(heroTextTl, "<= 0.3");
-      } else {
-        this.tlLoadMaster.to(this.tlLoading, {
-          duration: this.tlLoading.totalDuration(),
-          progress: 1,
-          ease: "none",
-        });
-      }
     }
     play(data) {
       if (!this.el) {
@@ -1544,6 +1552,27 @@ const mainScript = () => {
     }
     init(data) {
       this.el = document.querySelector(".header");
+      if (!this.el) return;
+      gsap.fromTo('.header .container', { yPercent: -100, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, clearProps: 'all' });
+      const menuBtn = this.el.querySelector(".header_menu_inner");
+      const menuNav = this.el.querySelector(".header_menu_nav");
+
+      if (menuBtn && menuNav) {
+        menuBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          menuBtn.classList.toggle("active");
+          menuNav.classList.toggle("active");
+          this.isOpen = menuBtn.classList.contains("active");
+        });
+
+        document.addEventListener("click", (e) => {
+          if (this.isOpen && !menuNav.contains(e.target) && !menuBtn.contains(e.target)) {
+            menuBtn.classList.remove("active");
+            menuNav.classList.remove("active");
+            this.isOpen = false;
+          }
+        });
+      }
     }
     update(data) {
       this.updateOnScroll(smoothScroll.lenis);
@@ -1638,6 +1667,44 @@ const mainScript = () => {
   }
   const header = new Header();
   const HomePage = {
+    Hero: class {
+      constructor() {
+        this.el = null;
+        this.tlFade = null;
+      }
+      trigger(data) {
+        this.el = document.querySelector('.home_hero');
+        if (!this.el) return;
+        this.setup();
+        this.animFade();
+        this.animScrub();
+      }
+      setup() {
+      }
+      animFade() {
+        this.tlFade = gsap.timeline();
+        new MasterTimeline({
+          timeline: this.tlFade,
+          triggerInit: this.el,
+          tweenArr: [
+            new FadeSplitText({ el: this.el.querySelector('.home_hero_overlay_txt') }),
+            new FadeIn({ el: this.el.querySelector('.home_hero_overlay_icon'), type: 'none' }),
+          ]
+        })
+      }
+      animScrub() {
+      }
+      destroy() {
+        if (this.tlFade) {
+          this.tlFade.kill();
+          this.tlFade = null;
+        }
+        if (this.entranceTl) {
+          this.entranceTl.kill();
+          this.entranceTl = null;
+        }
+      }
+    },
     Intro: class extends TriggerSetup {
       constructor() {
         super();
@@ -1651,9 +1718,14 @@ const mainScript = () => {
         super.setTrigger(this.el, this.onTrigger.bind(this));
       }
       onTrigger() {
-        // GSAP register
-        gsap.registerPlugin(ScrollTrigger);
-
+        this.setup();
+        this.animFade();
+        this.animScrub();
+      }
+      setup() {
+      }
+      animFade() { }
+      animScrub() {
         // ── home_intro_main: horizontal scroll panel ──
         this.introTl = gsap.timeline({
           scrollTrigger: {
@@ -1715,14 +1787,20 @@ const mainScript = () => {
         super.setTrigger(this.el, this.onTrigger.bind(this));
       }
       onTrigger() {
+        this.setup();
+        this.animFade();
+        this.animScrub();
+        this.interact();
+      }
+      setup() {
         // Initialize home clients tabs
-        console.log('trigger home_clients');
         let activeTab = $('.home_clients_tab_item.active').attr('data-tabs');
         if (activeTab) {
           $('.home_clients_content_item').hide();
           $('.home_clients_content_item[data-tabs="' + activeTab + '"]').css('display', 'flex');
         }
-
+      }
+      interact() {
         this.tabClickHandler = function () {
           if ($(this).hasClass('active')) return;
 
@@ -1737,6 +1815,8 @@ const mainScript = () => {
 
         $('.home_clients_tab_item').on('click', this.tabClickHandler);
       }
+      animFade() { }
+      animScrub() { }
       destroy() {
         super.cleanTrigger();
         if (this.tabClickHandler) {
@@ -1756,6 +1836,11 @@ const mainScript = () => {
         super.setTrigger(this.el, this.onTrigger.bind(this));
       }
       onTrigger() {
+        this.setup();
+        this.animFade();
+        this.animScrub();
+      }
+      setup() {
         gsap.registerPlugin(ScrollTrigger);
 
         const items = this.el.querySelectorAll('.home_services_item');
@@ -1764,6 +1849,16 @@ const mainScript = () => {
 
         // Set dynamic height on wrapper (100dvh per item)
         this.el.style.height = `${itemCount * 100}dvh`;
+
+        items.forEach((item, index) => {
+          // Dynamic z-index (higher item = higher z-index)
+          item.style.zIndex = index + 1;
+        });
+      }
+      animFade() { }
+      animScrub() {
+        const items = this.el.querySelectorAll('.home_services_item');
+        if (items.length === 0) return;
 
         this.servicesTl = gsap.timeline({
           scrollTrigger: {
@@ -1779,9 +1874,6 @@ const mainScript = () => {
         });
 
         items.forEach((item, index) => {
-          // Dynamic z-index (higher item = higher z-index)
-          item.style.zIndex = index + 1;
-
           // Animating slides 2, 3, etc.
           if (index > 0) {
             this.servicesTl.to(item, {
@@ -1805,6 +1897,7 @@ const mainScript = () => {
         this.timer = null;
         this.currentIndex = 0;
         this.isAnimating = false;
+        this.originalHTMLs = [];
       }
       trigger(data) {
         this.el = document.querySelector('.home_specialize_wrap');
@@ -1821,12 +1914,20 @@ const mainScript = () => {
         this.spans = Array.from(this.el.querySelectorAll('.home_specialize_inner_txt.main span'));
         if (this.spans.length === 0) return;
 
+        this.splits = [];
+        this.originalHTMLs = [];
+        this.currentIndex = 0;
+        this.isAnimating = false;
+
         // Hide all spans initially except the first one, and split their characters
         this.spans.forEach((span, index) => {
+          this.originalHTMLs.push(span.innerHTML);
           span.style.display = 'inline-block';
 
-          const childSplit = new SplitText(span, { type: 'chars' });
+          // First, split into outer masking container (parent)
           const parentSplit = new SplitText(span, { type: 'chars', charsClass: 'char-mask' });
+          // Then, split the outer characters (parentSplit.chars) to get the inner divs to animate (child)
+          const childSplit = new SplitText(parentSplit.chars, { type: 'chars' });
 
           this.splits.push({ child: childSplit, parent: parentSplit });
 
@@ -1838,10 +1939,11 @@ const mainScript = () => {
 
         // Animate the first span's characters into view
         const firstSplit = this.splits[0];
-        gsap.set(firstSplit.child.chars, { yPercent: 0 });
+        if (firstSplit) {
+          gsap.set(firstSplit.child.chars, { yPercent: 0 });
+        }
       }
       animFade() {
-        // Start the autonomous auto-play text rotation loop
         this.startLoop();
       }
       animScrub() {
@@ -1856,7 +1958,7 @@ const mainScript = () => {
           scrollTrigger: {
             trigger: this.el,
             start: 'top top',
-            end: `bottom-=${viewport.h}px bottom`,
+            end: `bottom-=${viewport.h / 2}px bottom`,
             scrub: 1,
             invalidateOnRefresh: true
           }
@@ -1907,6 +2009,9 @@ const mainScript = () => {
         }
       }
       startLoop() {
+        if (this.timer) {
+          clearInterval(this.timer);
+        }
         this.timer = setInterval(() => {
           this.next();
         }, 3000); // 3 seconds interval
@@ -1955,11 +2060,21 @@ const mainScript = () => {
           this.scrubTl.kill();
           this.scrubTl = null;
         }
-        this.splits.forEach(split => {
-          if (split.child) split.child.revert();
-          if (split.parent) split.parent.revert();
-        });
-        this.splits = [];
+        if (this.splits) {
+          this.splits.forEach(split => {
+            if (split.child) split.child.revert();
+            if (split.parent) split.parent.revert();
+          });
+          this.splits = [];
+        }
+        if (this.spans && this.originalHTMLs) {
+          this.spans.forEach((span, index) => {
+            if (this.originalHTMLs[index] !== undefined) {
+              span.innerHTML = this.originalHTMLs[index];
+            }
+          });
+          this.originalHTMLs = [];
+        }
       }
     }
   };
@@ -1977,20 +2092,12 @@ const mainScript = () => {
         super.setTrigger(this.el, this.onTrigger.bind(this));
       }
       onTrigger() {
-        this.tabClickHandler = function () {
-          if ($(this).hasClass('active')) return;
-
-          $('.home_clients_tab_item').removeClass('active');
-
-          let tabId = $(this).attr('data-tabs');
-          $('.home_clients_tab_item[data-tabs="' + tabId + '"]').addClass('active');
-
-          $('.home_clients_content_item').hide();
-          $('.home_clients_content_item[data-tabs="' + tabId + '"]').css('display', 'flex').hide().fadeIn(300);
-        };
-
-        $('.home_clients_tab_item').on('click', this.tabClickHandler);
-
+        this.setup();
+        this.animFade();
+        this.animScrub();
+        this.interact();
+      }
+      setup() {
         const topTab = document.querySelector(".home_clients_tab:not(.bottom)");
         const bottomTab = document.querySelector(".home_clients_tab.bottom");
 
@@ -2016,6 +2123,23 @@ const mainScript = () => {
           this.observer.observe(topTab);
         }
       }
+      interact() {
+        this.tabClickHandler = function () {
+          if ($(this).hasClass('active')) return;
+
+          $('.home_clients_tab_item').removeClass('active');
+
+          let tabId = $(this).attr('data-tabs');
+          $('.home_clients_tab_item[data-tabs="' + tabId + '"]').addClass('active');
+
+          $('.home_clients_content_item').hide();
+          $('.home_clients_content_item[data-tabs="' + tabId + '"]').css('display', 'flex').hide().fadeIn(300);
+        };
+
+        $('.home_clients_tab_item').on('click', this.tabClickHandler);
+      }
+      animFade() { }
+      animScrub() { }
       destroy() {
         super.cleanTrigger();
         if (this.tabClickHandler) {
@@ -2082,6 +2206,7 @@ const mainScript = () => {
     setupHandler(event) {
       const data = event.detail;
       const mode = event.mode;
+      $('[data-init]').removeAttr('data-init');
       this.sections.forEach((section) => {
         if (section.trigger) {
           section.trigger(data);

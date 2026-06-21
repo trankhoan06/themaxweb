@@ -6,7 +6,7 @@ This document defines the standard architecture for implementing section-specifi
 
 ## 1. Class Lifecycle Blueprint
 
-Each section module follows a strict lifecycle divided into five major phases:
+Each section module follows a strict lifecycle divided into six major phases:
 
 ```mermaid
 graph TD
@@ -15,25 +15,28 @@ graph TD
     C --> D[Setup]
     C --> E[AnimFade]
     C --> F[AnimScrub]
-    G[Destroy] -->|Cleanup| H[Memory Cleared]
+    C --> G[Interact]
+    H[Destroy] -->|Cleanup| I[Memory Cleared]
 ```
 
 ### Methods Overview
 
 1. **`constructor()`**
-   - Initialize instance variables (`this.el`, timers, splits, timelines) to `null` or empty arrays. Do not query the DOM here.
+   - Initialize instance variables (`this.el`, timers, splits, timelines, event handlers) to `null` or empty arrays. Do not query the DOM here.
 2. **`trigger(data)`**
    - Query the main wrapper element. If it exists, call `super.setTrigger(this.el, this.onTrigger.bind(this))` to defer initialization until the section is close to viewport entry.
 3. **`onTrigger()`**
-   - Called automatically by `TriggerSetup` when the element is scrolled into view. Triggers the three core methods in order: `setup()`, `animFade()`, and `animScrub()`.
+   - Called automatically by `TriggerSetup` when the element is scrolled into view. Triggers the core methods in order: `setup()`, `animFade()`, `animScrub()`, and `interact()`.
 4. **`setup()`**
    - Prepares DOM states: split texts, initial transformations, CSS properties, etc.
 5. **`animFade()`**
-   - Sets up autonomous, play-once, or auto-playing animations (such as text rotation loops or entrance fade-ins) that do *not* depend on scroll scroll-scrubbing.
+   - Sets up autonomous, play-once, or auto-playing animations (such as text rotation loops or entrance fade-ins) that do *not* depend on scroll-scrubbing.
 6. **`animScrub()`**
    - Sets up scroll-linked timelines (scrubbing) where GSAP properties are directly bound to the user's scroll progress (e.g., parallax effects, sticky rotations).
-7. **`destroy()`**
-   - Crucial for single-page performance. Clean up event listeners, kill timelines, clear intervals/timeouts, revert SplitTexts, and call `super.cleanTrigger()`.
+7. **`interact()`**
+   - Sets up user-driven interactive events, such as tab click handlers, mouse hover events, or form interactive behaviors.
+8. **`destroy()`**
+   - Crucial for single-page performance. Clean up interactive event listeners, kill timelines, clear intervals/timeouts, revert SplitTexts, and call `super.cleanTrigger()`.
 
 ---
 
@@ -50,6 +53,7 @@ SectionName: class extends TriggerSetup {
     this.scrubTl = null;
     this.splits = [];
     this.timer = null;
+    this.tabClickHandler = null;
   }
 
   // 1. Hook into DOM and set up lazy-scroll detection
@@ -64,6 +68,7 @@ SectionName: class extends TriggerSetup {
     this.setup();
     this.animFade();
     this.animScrub();
+    this.interact();
   }
 
   // 3. Prepare elements and apply initial values
@@ -121,9 +126,23 @@ SectionName: class extends TriggerSetup {
     }
   }
 
-  // 6. Complete memory cleanup
+  // 6. User interactive events (tabs, hover, clicks, form validations)
+  interact() {
+    this.tabClickHandler = function () {
+      if ($(this).hasClass('active')) return;
+      $('.tab_item').removeClass('active');
+      $(this).addClass('active');
+    };
+    $('.tab_item').on('click', this.tabClickHandler);
+  }
+
+  // 7. Complete memory cleanup
   destroy() {
     super.cleanTrigger();
+
+    if (this.tabClickHandler) {
+      $('.tab_item').off('click', this.tabClickHandler);
+    }
     
     if (this.timer) {
       clearInterval(this.timer);

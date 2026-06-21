@@ -626,6 +626,9 @@ h2 {
 
 }
 
+[data-init] {
+    opacity: 0;
+}
 
 /* header */
 .header {
@@ -652,105 +655,8 @@ h2 {
     }
 }
 
-/* Blur Overlay top-to-bottom */
-.blur-overlay {
-    pointer-events: none;
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: -50px;
-    --blur-factor: 3;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    background: linear-gradient(to bottom, rgba(16, 16, 16, 0.4), rgba(16, 16, 16, 0));
-}
-
 .header[data-mode="black"] .blur-overlay {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
-}
-
-.header.on-scroll .blur-overlay {
-    opacity: 1;
-}
-
-.blur-overlay-inner {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    --blur-factor: 3;
-}
-
-.blur-overlay-item {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    will-change: auto;
-}
-
-.blur-overlay-item:nth-child(1) {
-    z-index: 1;
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 25%, rgba(0, 0, 0, 0) 37.5%);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 25%, rgba(0, 0, 0, 0) 37.5%);
-    backdrop-filter: blur(calc(0.0546875px * var(--blur-factor)));
-    -webkit-backdrop-filter: blur(calc(0.0546875px * var(--blur-factor)));
-}
-
-.blur-overlay-item:nth-child(2) {
-    z-index: 2;
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 12.5%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 37.5%, rgba(0, 0, 0, 0) 50%);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 12.5%, rgb(0, 0, 0) 25%, rgb(0, 0, 0) 37.5%, rgba(0, 0, 0, 0) 50%);
-    backdrop-filter: blur(calc(0.109375px * var(--blur-factor)));
-    -webkit-backdrop-filter: blur(calc(0.109375px * var(--blur-factor)));
-}
-
-.blur-overlay-item:nth-child(3) {
-    z-index: 3;
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 25%, rgb(0, 0, 0) 37.5%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 62.5%);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 25%, rgb(0, 0, 0) 37.5%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 62.5%);
-    backdrop-filter: blur(calc(0.21875px * var(--blur-factor)));
-    -webkit-backdrop-filter: blur(calc(0.21875px * var(--blur-factor)));
-}
-
-.blur-overlay-item:nth-child(4) {
-    z-index: 4;
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 37.5%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 62.5%, rgba(0, 0, 0, 0) 75%);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 37.5%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 62.5%, rgba(0, 0, 0, 0) 75%);
-    backdrop-filter: blur(calc(0.4375px * var(--blur-factor)));
-    -webkit-backdrop-filter: blur(calc(0.4375px * var(--blur-factor)));
-}
-
-.blur-overlay-item:nth-child(5) {
-    z-index: 5;
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0) 62.5%, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 87.5%);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0) 62.5%, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 87.5%);
-    backdrop-filter: blur(calc(0.875px * var(--blur-factor)));
-    -webkit-backdrop-filter: blur(calc(0.875px * var(--blur-factor)));
-}
-
-.blur-overlay-item:nth-child(6) {
-    z-index: 6;
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 62.5%, rgb(0, 0, 0) 75%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 62.5%, rgb(0, 0, 0) 75%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
-    backdrop-filter: blur(calc(1.75px * var(--blur-factor)));
-    -webkit-backdrop-filter: blur(calc(1.75px * var(--blur-factor)));
-}
-
-.blur-overlay-item:nth-child(7) {
-    z-index: 7;
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, rgb(0, 0, 0) 87.5%, rgb(0, 0, 0) 100%);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, rgb(0, 0, 0) 87.5%, rgb(0, 0, 0) 100%);
-    backdrop-filter: blur(calc(3.5px * var(--blur-factor)));
-    -webkit-backdrop-filter: blur(calc(3.5px * var(--blur-factor)));
-}
-
-.blur-overlay-item:nth-child(8) {
-    z-index: 8;
-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgb(0, 0, 0) 100%);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgb(0, 0, 0) 100%);
-    backdrop-filter: blur(calc(7px * var(--blur-factor)));
-    -webkit-backdrop-filter: blur(calc(7px * var(--blur-factor)));
 }
 
 .header_logo {

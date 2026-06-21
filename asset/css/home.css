@@ -37,6 +37,27 @@
     height: 2.4rem;
 }
 
+.home_hero_overlay_icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    animation: arrow-bounce 2s infinite ease-in-out;
+}
+
+@keyframes arrow-bounce {
+
+    0%,
+    100% {
+        transform: translateY(-02rem);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}
+
 /* home_specialize */
 .home_specialize {
     height: 100dvh;
@@ -47,7 +68,7 @@
 }
 
 .home_specialize_block {
-    height: 150vh;
+    height: 120vh;
 }
 
 .home_specialize_bg_color_inner {
@@ -145,7 +166,8 @@
     opacity: 1;
 }
 
-.word-mask {
+.word-mask,
+.char-mask {
     display: inline-block;
     overflow: hidden;
     vertical-align: bottom;
