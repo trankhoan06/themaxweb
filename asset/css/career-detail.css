@@ -202,6 +202,126 @@
     margin-bottom: 2.4rem;
 }
 
+@media only screen and (max-width: 991px) {
+    .careerdetail_info_content {
+        grid-column: 1/9;
+    }
+
+    .careerdetail_info_other {
+        grid-column: 1/9;
+    }
+
+    .careerdetail_info_bg {
+        transform: translate(20%, -50%);
+        filter: blur(12rem);
+    }
+
+    .careerdetail_info {
+        padding-block: 10rem;
+    }
+
+    .career_why_list_item {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .careerdetail_info_bg {
+        width: 82.69%;
+        transform: translate(20%, -1%);
+        filter: blur(10rem);
+    }
+
+    .careerdetail_info_content_job_item {
+        width: calc(50% - 1.2rem);
+    }
+
+    .careerdetail_info_content_job {
+        flex-wrap: wrap;
+        row-gap: 2.4rem;
+    }
+
+    .careerdetail_info_content_job_item_name {
+        font-size: 1.3rem;
+    }
+
+    .careerdetail_info_content_job_item_txt {
+        font-size: 1.5rem;
+    }
+
+    .careerdetail_info_content_job {
+        padding: 2.4rem;
+        margin-bottom: 3.2rem;
+    }
+
+    .careerdetail_info_content {
+        grid-column: 1/5;
+    }
+
+    .careerdetail_info_other {
+        grid-column: 1/5;
+    }
+
+    .careerdetail_info_content_des_item_title {
+        margin-bottom: 1.2rem;
+    }
+
+    .careerdetail_info_content_des_item {
+        margin-bottom: 2.4rem;
+    }
+
+    .careerdetail_info_content_form_title {
+        margin-bottom: 1.6rem;
+    }
+
+    .careerdetail_form_input {
+        font-size: 1.4rem;
+        padding-bottom: 1.2rem;
+    }
+
+    .careerdetail_form_upload {
+        gap: 1.6rem;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .careerdetail_form_upload_txt {
+        font-size: 1.3rem;
+    }
+
+    .careerdetail_form_row {
+        margin-bottom: 3.2rem;
+    }
+
+    .careerdetail_form_row.submit_row {
+        margin-top: 0;
+    }
+
+    .careerdetail_info_other {
+        margin-top: 4.8rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 6.4rem;
+    }
+
+    .careerdetail_info_other_inner {
+        margin-bottom: 0;
+    }
+
+    .careerdetail_info_other_share {
+        order: 1;
+    }
+
+    .careerdetail_info {
+        padding-bottom: 6.4rem;
+    }
+
+    .careerdetail_info_other_inner {
+        order: 2;
+    }
+
+}
+
 /*cta  */
 
 .about_cta_inner_content_title_txt {

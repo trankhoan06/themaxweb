@@ -1,7 +1,7 @@
 /* about_hero */
 
 .about_hero .container {
-    padding-top: 11rem;
+    padding-top: 17.3rem;
     padding-bottom: 8rem;
     position: relative;
     overflow: hidden;
@@ -197,6 +197,9 @@
 
 .about_best_right {
     grid-column: 8/13;
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
 }
 
 .about_best_left {
